@@ -11,13 +11,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //bai tap 1: tong cac phan tu
-        int[] array = {1, 4, 14, 30, 33, 58, 77, 99};
-        int tong = 0;
-        for (int value : array) {
-            tong = tong + value;
-        }
-        Log.d("BBB", tong + "");
+        //bai tap 2: in ra index cua phan tu
+        int[] array = {1, 4, 4, 30, 33, 58, 77, 99};
+        findIndex(array, 4);
 
     }
+
+    private void findIndex(int[] array, int number) {
+        boolean flag = false;
+        int i = 0;
+        for (; i < array.length; i++) {
+            if (array[i] == number) {
+                Log.d("BBB", i + "");
+                flag = true;
+
+            }
+        }
+        if (!flag) {
+            Log.d("BBB", "-1");
+        }
+
+    }
+
+
 }
