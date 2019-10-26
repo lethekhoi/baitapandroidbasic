@@ -11,24 +11,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //bai tap 3: in ra index dau tien cua phan tu
-        int[] array = {1, 4, 4, 30, 33, 58, 77, 99};
-        findFirstIndex(array, 4);
+        //bai tap 4: xóa phan tử trùng nhau
+        int[] array = {1, 4, 4, 30, 33, 58, 77, 77, 30, 99};
 
-    }
+        int n = array.length;
 
-    private void findFirstIndex(int[] array, int number) {
-        boolean flag = false;
-        int i = 0;
-        for (; i < array.length; i++) {
-            if (array[i] == number) {
-                Log.d("BBB", i + "");
-                flag = true;
-                break;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                if (array[i] == array[j]) {
+                    int index = j;
+                    for (int k = index + 1; k < n; k++) {
+
+                        array[k - 1] = array[k];
+                    }
+                    n--;
+                }
             }
         }
-        if (!flag) {
-            Log.d("BBB", "-1");
+        for (int i = 0; i < n; i++) {
+            Log.d("BBB", array[i] + "");
         }
 
     }
